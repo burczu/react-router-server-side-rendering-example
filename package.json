@@ -1,0 +1,30 @@
+{
+  "name": "react-server-side-rendering-example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/burczu/react-server-side-rendering-example.git",
+  "author": "b.dybowski@gmail.com",
+  "license": "MIT",
+  "scripts": {
+    "clear": "rimraf ./build",
+    "start": "npm run clear && webpack && node ./build/server.js"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.8.7",
+    "express": "^4.17.1",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "@babel/preset-react": "^7.8.3",
+    "babel-loader": "^8.0.6",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-node-externals": "^1.7.2"
+  }
+}
