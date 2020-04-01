@@ -5,6 +5,7 @@ import ReactDOMServer from 'react-dom/server';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducers from './reducers';
+import { StaticRouter } from 'react-router';
 
 import Html from './components/Html';
 import App from './components/App';
@@ -21,9 +22,11 @@ app.get('*', async (req, res) => {
   const store = createStore(reducers, initialState);
 
   const appMarkup = ReactDOMServer.renderToString(
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <StaticRouter location={req.url} context={{}}>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </StaticRouter>
   );
   const html = ReactDOMServer.renderToStaticMarkup(
     <Html
