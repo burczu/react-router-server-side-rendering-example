@@ -1,19 +1,22 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { Route, Link, Switch } from 'react-router-dom';
+import Home from './Home';
+import About from './About';
 
-const App = ({ initialText, changeText }) => (
+const App = () => (
   <div>
-    <p>{initialText}</p>
-    <button onClick={changeText}>change text!</button>
+    <ul>
+      <li><Link to="/">Home</Link></li>
+      <li><Link to="/about">About</Link></li>
+    </ul>
+
+    <hr />
+
+    <Switch>
+      <Route path="/about" component={About} />
+      <Route path="/" component={Home} />
+    </Switch>
   </div>
 );
 
-const mapStateToProps = ({ initialText }) => ({
-  initialText,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  changeText: () => dispatch({ type: 'CHANGE_TEXT' }),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
